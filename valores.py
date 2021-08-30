@@ -18,7 +18,7 @@ class Valores:
     def distancia(self, distancia):
         try:
             self.__distancia = float(distancia)
-        except Exception:
+        except ValueError:
             print("O valor informado da distancia é inválido!") 
             exit()
         
@@ -26,6 +26,6 @@ class Valores:
     def consumo(self, consumo):
         try:
             self.__consumo = float(consumo)
-        except Exception:
+        except ValueError:
             print("O valor informado do consumo é inválido!") 
             exit()

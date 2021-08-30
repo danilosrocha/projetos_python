@@ -6,22 +6,23 @@ class Calculo:
 
     def calcular_gasto(self, valores):
         if (valores.distancia <= 0 or valores.consumo <= 0):
-            raise Exception ('O valor recebido não pode ser menor ou igual a zero')
+            print ('O valor recebido não pode ser menor ou igual a zero')
             exit()
+            
+        else:
+            gasto_gasolina = round(
+                (valores.distancia / valores.consumo) * self.__valor_gasolina, 2)
+            gasto_alcool = round(
+                (valores.distancia / valores.consumo) * self.__valor_alcool, 2)
+            gasto_diesel = round(
+                (valores.distancia / valores.consumo) * self.__valor_diesel, 2)
 
-        gasto_gasolina = round(
-            (valores.distancia / valores.consumo) * self.__valor_gasolina, 2)
-        gasto_alcool = round(
-            (valores.distancia / valores.consumo) * self.__valor_alcool, 2)
-        gasto_diesel = round(
-            (valores.distancia / valores.consumo) * self.__valor_diesel, 2)
+            return """ 
+            O valor total gasto será de:
 
-        return """ 
-        O valor total gasto será de:
-
-        Gasolina: R$ {} 
-        Álcool:   R$ {}
-        Diesel:   R$ {}
-        """.format(
-            gasto_gasolina, gasto_alcool, gasto_diesel
-        )
+            Gasolina: R$ {} 
+            Álcool:   R$ {}
+            Diesel:   R$ {}
+            """.format(
+                gasto_gasolina, gasto_alcool, gasto_diesel
+            )
